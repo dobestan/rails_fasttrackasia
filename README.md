@@ -14,3 +14,8 @@ Post Model
 ---
 - Post Model 생성하기 > rails generate Model Post
 - Post Model 정의하기 > vi PROJECT_ROOT/db/migrate/DATE_create_post.rb
+- Post Model 실제로 생성하기 > rake db:migrate
+
+Routing for Post
+---
+- 기본적으로 제공하는 RESTful Rouing 을 이용하자. > resources :posts
