@@ -1,5 +1,18 @@
 Rails.application.routes.draw do
   resources :posts
+
+  # 아래와 같이 기본적인 CRUD에 대해서 명시적으로 Routing을 설정하는 방법을 권하지 않습니다.
+  # 이해를 돕기 위하여 추가하였습니다.
+
+  # match '/posts', to: 'posts#index', via: :GET
+  # match '/posts', to: 'posts#create', via: :POST
+  # match '/posts/new', to: 'posts#new', via: :GET, as: 'new_post'
+  # match '/posts/:id/edit', to: 'posts#edit', via: :GET, as: 'edit_post'
+  # match '/posts/:id', to: 'posts#show', via: :GET, as: 'post'
+  # match '/posts/:id', to: 'posts#update', via: :PATCH
+  # match '/posts/:id', to: 'posts#update', via: :PUT
+  # match '/posts/:id', to: 'posts#destroy', via: :DELETE
+
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
 
