@@ -6,3 +6,10 @@
 
 - Gemfile의 15번 째 줄에서, therubyracer의 주석을 풀어준다.
 ( 실습환경인 ubuntu 같은 경우에는 기본적으로 javascript Runtime이 설치되어 있지 않다. )
+- 주석을 푸신 이후에는 다시 bundle install 해주셔야 하는거 아시죠? ( = Gemfile 설치하기 )
+- 우리는 무엇을 만들 예정이냐면, Post, Comment가 있는 기본적인 블로그를 만들 예정입니다.
+- 순서는 기본적으로 모델을 생성하고, 라우팅을 설정하고, 컨트롤러와 뷰를 생성할 예정입니다.
+
+Post Model 생성하기
+---
+- rails generate Model Post
