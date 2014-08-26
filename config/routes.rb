@@ -1,5 +1,7 @@
 Rails.application.routes.draw do
-  resources :posts
+  resources :posts do
+    resources :comments
+  end
 
   # 아래와 같이 기본적인 CRUD에 대해서 명시적으로 Routing을 설정하는 방법을 권하지 않습니다.
   # 이해를 돕기 위하여 추가하였습니다.
