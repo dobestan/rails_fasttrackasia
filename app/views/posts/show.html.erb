@@ -2,3 +2,28 @@
 <div>
   <%= @post.content  %>
 </div>
+
+<h2>New Comment</h2>
+<%= form_for :comment, url: post_comments_path(@post) do |f| %>
+  <div>
+    <%= f.label :commenter %><br />
+    <%= f.text_field :commenter %>
+  </div>
+
+  <div>
+    <%= f.label :content %><br />
+    <%= f.text_field :content %>
+  </div>
+
+  <div>
+    <%= f.submit  %>
+  </div>
+<% end %>
+
+<% if @post.comments.any?  %>
+  <% @post.comments.each do |comment| %>
+    <li><%= comment.commenter  %> : <%= comment.content  %></li>
+  <% end %>
+<% else %>
+  현재 등록되어 있는 댓글이 없습니다.
+<% end %>
