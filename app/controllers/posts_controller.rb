@@ -20,6 +20,17 @@ class PostsController < ApplicationController
     redirect_to post_path(post)
   end
 
+  # EDIT -> UPDATE
+  def edit
+    @post = Post.find(params[:id])
+  end
+
+  def update
+    post = Post.find(params[:id])
+    post.update(post_params)
+    redirect_to post_path(post)
+  end
+
   private
     def post_params
       # post라는 이름의 form 에 대해서 ( form_for @post / form_for :post )
