@@ -2,6 +2,7 @@
 
 <div>
 <%= form_for @post do |f| %>
+<% # form_for :post, url: post_path(post), method: :patch do |f| %>
   <div>
     <%= f.label :title  %><br />
     <%= f.text_field :title  %><br />
