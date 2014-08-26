@@ -23,3 +23,12 @@ Routing for Post
 Post Controller, View
 ---
 - PostsController 생성하기 > rails generate Controller Posts
+
+Comment Model
+---
+- Comment Model 생성하기 > rails generate Model Comment
+- Comment Model 정의하기
+
+- Post Model과 연결하기
+
+- Comment Model 실제로 생성하기
