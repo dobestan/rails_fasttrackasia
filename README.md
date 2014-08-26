@@ -10,6 +10,7 @@
 - 우리는 무엇을 만들 예정이냐면, Post, Comment가 있는 기본적인 블로그를 만들 예정입니다.
 - 순서는 기본적으로 모델을 생성하고, 라우팅을 설정하고, 컨트롤러와 뷰를 생성할 예정입니다.
 
-Post Model 생성하기
+Post Model
 ---
-- rails generate Model Post
+- Post Model 생성하기 > rails generate Model Post
+- Post Model 정의하기 > vi PROJECT_ROOT/db/migrate/DATE_create_post.rb
