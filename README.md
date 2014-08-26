@@ -19,3 +19,7 @@ Post Model
 Routing for Post
 ---
 - 기본적으로 제공하는 RESTful Rouing 을 이용하자. > resources :posts
+
+Post Controller, View
+---
+- PostsController 생성하기 > rails generate Controller Posts
