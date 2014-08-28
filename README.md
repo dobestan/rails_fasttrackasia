@@ -10,6 +10,7 @@ ScreenCast
 [![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/pMi3JImoznM/0.jpg)](http://www.youtube.com/watch?v=pMi3JImoznM)
 
 #### 2. `Comment` CRUD ( Relational Modeling )
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/6C2hJP_wEWw/0.jpg)](http://www.youtube.com/watch?v=6C2hJP_wEWw)
 
 Rails 프로젝트 초기화
 ---
