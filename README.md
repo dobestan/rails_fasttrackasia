@@ -4,6 +4,11 @@
 * 기본적인 CRUD를 자세하게 설명하기 위해서 제작되고 있습니다.
 * 자세한 내용은 git log 를 살펴봐주시면 감사하겠습니다.
 
+ScreenCast
+---
+#### 1. `Post` CRUD ( Basic CRUD )
+#### 2. `Comment` CRUD ( Relational Modeling )
+
 Rails 프로젝트 초기화
 ---
 ```
