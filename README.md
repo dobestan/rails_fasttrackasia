@@ -73,7 +73,7 @@ edit_post GET    /posts/:id/edit(.:format)              posts#edit
 설명하도록 한다.
 
 
-#### form_for는 대체 어떻게 사용하는건가요?
+#### Q. form_for는 대체 어떻게 사용하는건가요?
 우리는 html에서 기본적으로 있는 `<form><form>`을 사용하지 않고 레일즈에서 제공하는 `form_for`을 사용하였다.
 그 이유는 수업 시간에도 설명했지만, html의 form을 사용하는 것 보다 한단계 더 높은 추상화이고 기본적으로
 `CSRF_Token`을 포함하고 있어서 더 높은 수준의 보안을 제공한다.
@@ -97,3 +97,53 @@ edit_post GET    /posts/:id/edit(.:format)              posts#edit
 반면에, `:post`가 아니라 `@post`를 사용하였을 때, 컨트롤러에서 `@post = Post.new()`로 넘겨 주었기 때문에,
 `form_for`는 이 데이터가 `Post` 데이터이고 만약 현재 action이 `new`라면 `create`로,
 `edit`라면 `update`로 넘겨주어야함을 알고 있다. 따라서 명시적으로 `url`이나 `method`를 알려줄 필요가 없다.
+
+
+`Comment` 모델 생성하고 관계 정의하기
+---
+그냥 상식적으로 생각하면 굉장히 쉽다. `Post` 모델과 `Comment` 모델의 관계를 정의해주려면 어떻게 하면 될까?
+
+1. `Comment` 모델은 `Post`에 대한 정보를 가지고 있어야 한다.
+2. `Post`는 여러 개의 `Comment`를 가지고 있다는 것을 알고 있어야 한다.
+3. `Comment`는 단 하나의 `Post`에 속해 있음을 알고 있어야 한다.
+
+위의 세 가지 아이디어를 그대로 코드로 옮기면 된다.
+
+```
+$ rails generate model Comment
+```
+
+#### 1. `Comment` 모델은 `Post`에 대한 정보를 가지고 있어야 한다.
+```
+# db/migrate/DATE_create_comment.rb
+
+class CreateComments < ActiveRecord::Migration
+  def change
+    create_table :comments do |t|
+      t.string :commenter
+      t.text :content
+      t.references :post # 여기 부분에 post에 대한 정보를 명시한다. ( 실제로는 post_id를 저장 )
+
+      t.timestamps
+    end
+  end
+end
+```
+
+#### 2. `Post`는 여러 개의 `Comment`를 가지고 있다는 것을 알고 있어야 한다.
+```
+# app/models/post.rb
+
+class Post < ActiveRecord::Base
+  has_many :comments
+end
+```
+
+#### 3. `Comment`는 단 하나의 `Post`에 속해 있음을 알고 있어야 한다.
+```
+# app/models/comment.rb
+
+class Comment < ActiveRecord::Base
+  belongs_to :post
+end
+```
