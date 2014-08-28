@@ -7,6 +7,8 @@
 ScreenCast
 ---
 #### 1. `Post` CRUD ( Basic CRUD )
+<iframe width="960" height="720" src="//www.youtube.com/embed/pMi3JImoznM" frameborder="0" allowfullscreen></iframe>
+
 #### 2. `Comment` CRUD ( Relational Modeling )
 
 Rails 프로젝트 초기화
