@@ -4,25 +4,71 @@
 * 기본적인 CRUD를 자세하게 설명하기 위해서 제작되고 있습니다.
 * 자세한 내용은 git log 를 살펴봐주시면 감사하겠습니다.
 
-- Gemfile의 15번 째 줄에서, therubyracer의 주석을 풀어준다.
-( 실습환경인 ubuntu 같은 경우에는 기본적으로 javascript Runtime이 설치되어 있지 않다. )
-- 주석을 푸신 이후에는 다시 bundle install 해주셔야 하는거 아시죠? ( = Gemfile 설치하기 )
-- 우리는 무엇을 만들 예정이냐면, Post, Comment가 있는 기본적인 블로그를 만들 예정입니다.
-- 순서는 기본적으로 모델을 생성하고, 라우팅을 설정하고, 컨트롤러와 뷰를 생성할 예정입니다.
-
-Post Model
+Rails 프로젝트 초기화
 ---
-- Post Model 생성하기 > rails generate Model Post
-- Post Model 정의하기 > vi PROJECT_ROOT/db/migrate/DATE_create_post.rb
-- Post Model 실제로 생성하기 > rake db:migrate
+```
+$ rails new PROJECT_NAME
+```
 
-Routing for Post
+실습환경인 Ubuntu 12.04의 경우에는 기본적으로 javascript Runtime이 설치되어 있지 않습니다.
+따라서 javascript를 실행할 수 있는 therubyracer gem 을 추가적으로 설치해주어야 합니다.
+`Gemfile`의 15번 째 줄에서, `therubyracer`의 주석을 풀어주시면 됩니다.
+
+`Post` 모델을 정의하고 생성하기
+---
+```
+$ rails generate model Post
+```
+
+물론 `rails generate model Post title:string content:string` 으로 바로 만들어도 괜찮지만,
+직접 `db/migrate/DATE_create_post.rb`을 수정해서 모델을 정의해보자.
+
+```
+# db/migrate/DATE_create_posts.rb
+
+class CreatePosts < ActiveRecord::Migration
+  def change
+    create_table :posts do |t|
+      t.string :title
+      t.string :content
+
+      t.timestamps
+    end
+  end
+end
+```
+
+```
+$ rake db:migrate
+
+== 20140826021041 CreatePosts: migrating ======================================
+-- create_table(:posts)
+   -> 0.0016s
+== 20140826021041 CreatePosts: migrated (0.0017s) =============================
+```
+
+`Post`를 위한 라우팅
 ---
 - 기본적으로 제공하는 RESTful Rouing 을 이용하자. > resources :posts
 
-Post Controller, View
+```
+$ rake routes
+
+    posts GET    /posts(.:format)                       posts#index
+          POST   /posts(.:format)                       posts#create
+ new_post GET    /posts/new(.:format)                   posts#new
+edit_post GET    /posts/:id/edit(.:format)              posts#edit
+     post GET    /posts/:id(.:format)                   posts#show
+          PATCH  /posts/:id(.:format)                   posts#update
+          PUT    /posts/:id(.:format)                   posts#update
+          DELETE /posts/:id(.:format)                   posts#destroy
+```
+
+`Post` CRUD
 ---
-- PostsController 생성하기 > rails generate Controller Posts
+```
+$ rails generate Controller Posts
+```
 
 Comment Model
 ---
