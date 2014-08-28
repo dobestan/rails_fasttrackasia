@@ -22,7 +22,10 @@
 
 <% if @post.comments.any?  %>
   <% @post.comments.each do |comment| %>
-    <li><%= comment.commenter  %> : <%= comment.content  %></li>
+    <li>
+      <%= comment.commenter  %> : <%= comment.content  %>
+      <%= link_to "delete", post_comment_path(post_id: @post, id: comment.id), method: :DELETE %>
+    </li>
   <% end %>
 <% else %>
   현재 등록되어 있는 댓글이 없습니다.
