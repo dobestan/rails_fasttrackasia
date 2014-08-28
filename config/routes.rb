@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   resources :posts do
-    resources :comments
+    resources :comments, only: [:create, :destroy]
   end
 
   # 아래와 같이 기본적인 CRUD에 대해서 명시적으로 Routing을 설정하는 방법을 권하지 않습니다.
@@ -14,6 +14,9 @@ Rails.application.routes.draw do
   # match '/posts/:id', to: 'posts#update', via: :PATCH
   # match '/posts/:id', to: 'posts#update', via: :PUT
   # match '/posts/:id', to: 'posts#destroy', via: :DELETE
+  #
+  # match 'posts/:post_id/comments', to: 'comments#create', via: :POST, as: 'post_comments'
+  # match 'posts/:post_id/comments/:id', to: 'comments#destroy', via: :DELETE, as: 'post_comment'
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
