@@ -7,7 +7,7 @@
 ScreenCast
 ---
 #### 1. `Post` CRUD ( Basic CRUD )
-<iframe width="960" height="720" src="//www.youtube.com/embed/pMi3JImoznM" frameborder="0" allowfullscreen></iframe>
+[![IMAGE ALT TEXT HERE](http://img.youtube.com/vi/pMi3JImoznM/0.jpg)](http://www.youtube.com/watch?v=pMi3JImoznM)
 
 #### 2. `Comment` CRUD ( Relational Modeling )
 
